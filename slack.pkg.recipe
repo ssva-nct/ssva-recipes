@@ -13,7 +13,7 @@
 		<key>PKG_ID</key>
 		<string>com.tinyspeck.slackmacgap</string>
 		<key>description</key>
-		<string>Installs %version% of Slack onto macOS devices.</string>
+		<string>Installs Slack onto macOS devices.</string>
 		<key>developer</key>
 		<string>Strategic Solutions</string>
 		<key>display_name</key>
