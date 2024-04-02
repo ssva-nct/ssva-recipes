@@ -154,6 +154,8 @@
 				<string>%developer%</string>
 				<key>version</key>
 				<string>%version%</string>
+				<key>lob_app</key>
+				<true/>
 			</dict>	
 		</dict>
 	</array>
