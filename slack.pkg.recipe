@@ -165,6 +165,8 @@
 				<string>%developer%</string>
 				<key>version</key>
 				<string>%version%</string>
+				<key>icon</key>
+				<string>%icon_file_path%</string>
 				<key>lob_app</key>
 				<true/>
 			</dict>	
