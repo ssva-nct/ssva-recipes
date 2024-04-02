@@ -137,6 +137,17 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
+			<string>com.github.almenscorner.intune-upload.processors/IntuneAppIconGetter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>app_file</key>
+				<string>%pkgroot%/Applications/Slack.app</string>
+				<key>name</key>
+				<string>%NAME%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
 			<string>com.github.almenscorner.intune-upload.processors/IntuneAppUploader</string>
 			<key>Arguments</key>
 			<dict>
