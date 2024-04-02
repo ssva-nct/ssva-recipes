@@ -26,37 +26,6 @@
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack</string>
-				<key>flat_pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/downloads/%filename%</string>
-			</dict>
-			<key>Processor</key>
-			<string>FlatPkgUnpacker</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pattern</key>
-				<string>%destination_path%/*.pkg</string>
-			</dict>
-			<key>Processor</key>
-			<string>FileFinder</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>destination_path</key>
-				<string>%destination_path%</string>
-				<key>pkg_payload_path</key>
-				<string>%destination_path%/%found_basename%/Payload</string>
-			</dict>
-			<key>Processor</key>
-			<string>PkgPayloadUnpacker</string>
-		</dict>
-		<dict>
 			<key>Processor</key>
 			<string>PkgRootCreator</string>
 			<key>Arguments</key>
@@ -71,24 +40,24 @@
 			</dict>
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack</string>
+				<string>%pkgroot%/Applications/Slack.app</string>
 				<key>source_path</key>
-				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg/Slack.app</string>
-			</dict>
-			<key>Processor</key>
-			<string>Copier</string>
+				<string>%pathname%/Slack.app</string>
+			</dict>		
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>AppDmgVersioner</string>
 			<key>Arguments</key>
 			<dict>
 				<key>dmg_path</key>
 				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg</string>
-			</dict>
-			<key>Processor</key>
-			<string>AppDmgVersioner</string>
+			</dict>	
 		</dict>
 		<dict>
 			<key>Processor</key>
@@ -100,7 +69,7 @@
 					<key>pkgname</key>
 					<string>%NAME%-%version%</string>
 					<key>pkgdir</key>
-					<string>%RECIPE_CACHE_DIR%</string>
+					<string>%RECIPE_CACHE_DIR%/downloads</string>
 					<key>id</key>
 					<string>%PKG_ID%</string>
 					<key>options</key>
@@ -120,6 +89,39 @@
 			</dict>
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+				<key>flat_pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%-%version%.pkg</string>
+			</dict>			
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/*.pkg</string>
+			</dict>	
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%destination_path%</string>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/Payload</string>
+			</dict>		
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PlistReader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>info_path</key>
@@ -132,10 +134,10 @@
 					<string>version</string>
 				</dict>
 			</dict>
-			<key>Processor</key>
-			<string>PlistReader</string>
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>com.github.almenscorner.intune-upload.processors/IntuneAppUploader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>app_file</key>
@@ -152,9 +154,7 @@
 				<string>%developer%</string>
 				<key>version</key>
 				<string>%version%</string>
-			</dict>
-			<key>Processor</key>
-		<string>com.github.almenscorner.intune-upload.processors/IntuneAppUploader</string>
+			</dict>	
 		</dict>
 	</array>
 </dict>
