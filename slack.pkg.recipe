@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v2.3.1 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of Slack and creates a package.</string>
 	<key>Identifier</key>
@@ -15,7 +13,7 @@
 		<key>PKG_ID</key>
 		<string>com.tinyspeck.slackmacgap</string>
 		<key>description</key>
-		<string>Description</string>
+		<string>Installs %version% of Slack onto macOS devices.</string>
 		<key>developer</key>
 		<string>Strategic Solutions</string>
 		<key>display_name</key>
@@ -24,7 +22,7 @@
 	<key>MinimumVersion</key>
 	<string>2.3</string>
 	<key>ParentRecipe</key>
-	<string>com.ssva.download.Slack</string>
+	<string>com.ssva.download.slack</string>
 	<key>Process</key>
 	<array>
 		<dict>
