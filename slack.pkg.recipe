@@ -22,7 +22,7 @@
 	<key>MinimumVersion</key>
 	<string>2.3</string>
 	<key>ParentRecipe</key>
-	<string>com.ssva.download.slack</string>
+	<string>com.github.ssva-nct.download.slack</string>
 	<key>Process</key>
 	<array>
 		<dict>
